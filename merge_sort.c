@@ -1,6 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/* O Merge Sort é um algoritmo de ordenação eficiente que segue o princípio "dividir para conquistar".
+Ele divide a lista não ordenada em partes menores, ordena cada parte e depois mescla essas partes em uma única lista ordenada.
+Com complexidade de tempo previsível de O(n log n), o Merge Sort é uma escolha popular para ordenar grandes conjuntos de dados,
+apesar de exigir espaço extra na memória para a fase de mesclagem. */
+
 
 // Recursivo
 void intercala(int *resultado,int *xl,int *xr, int s1, int s2) {
@@ -31,6 +36,23 @@ void merge_sort_recursivo(int *array, int *copia, int t) {
     
 }
 
+/* 
+    Esta é uma versão interativa do algoritmo de Merge Sort. Ela ordena e mescla pares de tamanho 2^i,
+    onde i >= 0 e 2^i é menor que o tamanho total da lista.
+    O vetor auxiliar é utilizado para copiar os pares já ordenados e, em seguida, ele é transferido de volta
+    para o vetor original ao final de cada loop.
+    O loop externo controla a ordenação e mesclagem das partes do array. Ele começa com pares pequenos e gradualmente
+    trabalha em direção a pares maiores.
+    O loop interno opera sobre cada par de elementos e realiza a ordenação e mesclagem. Ele divide o par em duas partes:
+    a primeira parte de esquerda até meio e a segunda de meio até direita. Os índices x e y ajudam a acompanhar a posição
+    atual de ambos os lados.
+    O processo de mesclagem é feito comparando os elementos nos índices x e y, escolhendo o menor (ou igual) e copiando-o
+    para o vetor auxiliar. Isso ocorre até que todos os elementos do par sejam mesclados de volta na ordem correta.
+    Após mesclar todos os pares do loop interno, o vetor auxiliar é transferido de volta para o vetor original, efetivamente
+    atualizando a parte ordenada.
+    Esse processo continua até que todos os elementos estejam totalmente ordenados no vetor original.
+    O algoritmo de Merge Sort é eficiente e garante que o vetor esteja ordenado ao final da sua execução.
+*/
 
 // Interativo 
 
