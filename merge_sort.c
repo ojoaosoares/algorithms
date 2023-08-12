@@ -72,20 +72,15 @@ void merge_sort(int *array, int tamanho) {
             x = esquerda;
             y  = meio;
             
-
-
             while (esquerda < direita)
             {
                 if((array[x] < array[y] || y >= direita) &&  (x < meio)) auxiliar[esquerda++] = array[x++];
                 else if((array[y] <= array[x] || x>= meio) && y < direita) auxiliar[esquerda++] = array[y++];
             }
             
-        }
-
-
-        for (int j = 0; j < tamanho; j++)
-            array[j] = auxiliar[j];
-        
-    }
-        
+            for (int k = j; k <  direita; k++)
+                array[k] = auxiliar[k];
+        } 
+    }     
 }
+
