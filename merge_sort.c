@@ -81,6 +81,8 @@ void merge_sort(int *array, int tamanho) {
             for (int k = j; k <  direita; k++)
                 array[k] = auxiliar[k];
         } 
-    }     
+    }
+
+    free(auxiliar);
 }
 
