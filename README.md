@@ -13,9 +13,9 @@ This folder serves as a repository for various algorithms implemented in differe
 
 ## Technologies Used
 
-- The algorithms are implemented in various programming languages, including but not limited to:
-  - C  
-  - C++
+The algorithms are implemented in various programming languages, including but not limited to:
+- C  
+- C++
 
 ## Usage
 
