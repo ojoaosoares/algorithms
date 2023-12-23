@@ -1,7 +1,3 @@
-Certainly! Here's a template for a README file about a folder that stores algorithms, presented in code format:
-
-markdown
-
 # Algorithms Repository
 
 This folder serves as a repository for various algorithms implemented in different programming languages. Each file represents a specific algorithm or problem-solving approach.
