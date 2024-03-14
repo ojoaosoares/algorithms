@@ -1,12 +1,8 @@
-#include <bits/stdc++.h>
+#include "mdc.hpp"
 
-using namespace std;
-
-typedef long long ll;
-
-ll mdc(ll a, ll b)
-{
-    ll big, small, r;
+long long mdc(long long a, long long b) {
+    
+    long long big, small, r;
 
     if (a > b) { big = a; small = b; }
 
@@ -24,14 +20,4 @@ ll mdc(ll a, ll b)
     } while (r);
 
     return big; 
-}
-
-int main ()
-{
-
-    ll x, y;
-
-    cin >> x >> y;
-
-    cout << mdc(x, y) << '\n';
 }
