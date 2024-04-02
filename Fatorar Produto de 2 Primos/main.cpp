@@ -6,14 +6,15 @@ typedef long long ll;
 std::pair<ll, ll> fatorar(ll n) {
 
     ll x = std::ceil(sqrt(n));
-    double y;
+    double y, z = x*x - n;
 
     while (true) {
 
-        y = sqrt(x*x - n);
+        y = sqrt(z);
 
         if ((double) std::abs(y) == y) break;
 
+        z += 2*x + 1;
         x++;
     }
 
