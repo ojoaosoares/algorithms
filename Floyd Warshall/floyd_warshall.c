@@ -9,7 +9,7 @@
     A ideia principal é iterar por todos os vértices intermediários possíveis para determinar se eles podem encurtar o caminho entre quaisquer dois vértices.
     Dessa forma, ele constrói progressivamente as distâncias mínimas.
     Embora seja eficaz na determinação de caminhos mais curtos em um grafo, o algoritmo Floyd-Warshall pode ser menos eficiente em termos de tempo e espaço
-    , especialmente para grafos maiores, devido à sua complexidade de tempo de O(V^3), onde V é o número de vértices.
+    , especialmente para grafos maiores, devido à sua complexidade de tempo de O(N^3), onde V é o número de vértices.
     No entanto, sua versatilidade e capacidade de lidar com arestas de peso negativo o tornam uma ferramenta valiosa em situações onde outros algoritmos,
     como Dijkstra ou Bellman-Ford, podem não ser aplicáveis.
 
