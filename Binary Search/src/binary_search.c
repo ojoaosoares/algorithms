@@ -1,4 +1,3 @@
-#include <stdio.h>
 
 /* A busca binária é um algoritmo eficiente amplamente utilizado para encontrar um determinado elemento em uma lista ordenada.
 Ele opera dividindo repetidamente a lista ao meio e comparando o valor alvo com o elemento no meio da lista.
@@ -10,14 +9,16 @@ No entanto, a busca binária requer que a lista esteja ordenada para funcionar c
 É uma estratégia eficaz para localizar elementos em grandes conjuntos de dados,
 e sua abordagem de divisão e conquista o torna uma ferramenta poderosa em algoritmos de busca.
 */
-int binary_search(int *array,int alvo, int esquerda, int direita) {
+int binary_search(int *array,int t, int l, int r) {
+    // Input : *array, t, l, r
+    // Complexity : log (r - l + 1)
+    // Output : true or false
     
-    while (esquerda <= direita)
+    while (l <= r)
     {
-        int meio = (esquerda + direita)/2;
-        if(array[meio] == alvo) return 1;
-        if(alvo > array[meio]) esquerda = meio+1;
-        else direita = meio -1;
+        int middle = (l + r)/2;
+        if(t > array[middle]) l = middle + 1;
+        else r = middle - 1;
     }
     
 

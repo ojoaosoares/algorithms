@@ -9,7 +9,7 @@ long long ak_mod_n(long long a, long long k, long long n) {
 
     long long number = a % n, pow = k, ans = 1;
 
-    if (pow & 1) ans = a;
+    if (pow & 1) ans = number;
     pow >>= 1;
 
     while (pow != 0)

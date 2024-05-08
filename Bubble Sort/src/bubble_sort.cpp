@@ -21,8 +21,8 @@ template<typename T> void bubble_sort(T array[], long long n)
     }
     // Análise
     // Buble sort é um método de ordenação ESTÁVEL
-    // A complexidade de comparações é Grande O de n ao quadrado
-    // A complexidade de movimentações no melhor caso também seria GRANDE    O de n ao quadrado, 
+    // A complexidade de comparações é O(n²)
+    // A complexidade de movimentações no melhor caso seria O(1), enquanto no pior caso O(n²), 
     // enquanto que no melhor caso seria O de 1
 
 

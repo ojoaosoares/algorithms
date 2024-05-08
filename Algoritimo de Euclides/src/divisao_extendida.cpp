@@ -2,6 +2,11 @@
 
 std::pair<long long, long long> divisao_extendida(long long a, long long b) 
 {
+    // Description : Computes the minamal soltuion of the diophantine equation a*x + b*y = 1
+    // Input : a, b
+    // Output : x, y
+    // Complexity : O(log b)
+
 
     long long big = a, small = b, x = 1, x0 = 1, x1 = 0, y = 0, y0 = 0, y1 = 1;
 
