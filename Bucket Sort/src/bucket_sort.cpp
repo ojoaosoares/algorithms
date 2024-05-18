@@ -1,5 +1,5 @@
 #include "bucket_sort.hpp"
-#include "list.hpp"
+#include "singlylinkedlistordered.hpp"
 #include "maxmin.hpp"
 #include <math.h>
 
@@ -11,14 +11,15 @@ void bucket_sort(T *array, long long n)
     maxMin(array, n, max, min);
 
     long long buckets_number = n;
-    T buckets_range = (max - min + 1) /  buckets_number;
+    T buckets_range = (int) std::ceil((max - min + 1) / (float)  buckets_number);
 
     SinglyLinkedListOrdered<T> buckets[buckets_number + 1];
 
     for (long long i = 0; i < n; i++)
-        buckets[(int) std::floor((array[i] - min + 1) / buckets_range)].insert(array[i]);
+        buckets[(int) std::floor((array[i] - min + 1) / (float) buckets_range)].insert(array[i]);
 
     int j = 0;
+    
     for (long long i = 0; i <= buckets_number; i++)
         if (!buckets[i].Empty())
         {
