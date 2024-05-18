@@ -10,12 +10,10 @@ class Node
 
     public:
         Node(T item);
-        void setItem(T item);
-        void setNext(Node<T>* next);
-        T getItem();
-        Node<T>* getNext();
 
     friend class SingSinglyLinkedList;
+    friend class SinglyLinkedListOrdered;
+    friend class SinglyLinkedListUnordered;
 };
 
 
