@@ -1,21 +1,27 @@
 #include "list.hpp"
 
-// Node implementation
+// Base List implementation
 
 template <typename T>
-Node<T>::Node(T item) : item(item), next(nullptr) {}
+List<T>::List() : size(0) {}
 
 template <typename T>
-void Node<T>::setItem(T item) { this->item = item; }
+int List<T>::getSize() const
+{
+    // Output : int, the size of the array
+    // Complexity : O(1)
+
+    return size;
+}
 
 template <typename T>
-void Node<T>::setNext(Node<T>* next) { this->next = next; }
+bool List<T>::Empty() const
+{
+    // Output : a boolean value, if the array is empty (size equals 0) true, else false
+    // Complexity : O(1)
 
-template <typename T>
-T Node<T>::getItem() { return item; }
-
-template <typename T>
-Node<T>* Node<T>::getNext() { return next; }
+    return getSize() == 0;
+}
 
 // Singly Linked List implemention
 
