@@ -24,18 +24,6 @@ class List
 };
 
 template  <typename T>
-class SinglyLinkedListOrdered : public  SinglyLinkedList<T>
-{   
-    public :
-        SinglyLinkedListOrdered();
-        ~SinglyLinkedListOrdered();
-
-        void insert(T item);
-        virtual int search(T item) const override;
-
-};
-
-template  <typename T>
 class SinglyLinkedListUnordered : public  SinglyLinkedList<T>
 {   
     public :

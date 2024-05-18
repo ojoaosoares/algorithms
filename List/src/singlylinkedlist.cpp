@@ -3,7 +3,7 @@
 // Singly Linked List implemention
 
 template <typename T>
-SinglyLinkedList<T>::SinglyLinkedList() : List<T>() { head = nullptr; tail = nullptr; }
+SinglyLinkedList<T>::SinglyLinkedList() : List() { head = nullptr; tail = nullptr; }
 
 template <typename T>
 SinglyLinkedList<T>::~SinglyLinkedList() { clear(); }
