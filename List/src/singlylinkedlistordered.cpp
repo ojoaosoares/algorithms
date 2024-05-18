@@ -3,7 +3,7 @@
 // Singly Linked List Ordered  implementation
 
 template  <typename T>
-SinglyLinkedListOrdered<T>::SinglyLinkedListOrdered() : SinglyLinkedList() {}
+SinglyLinkedListOrdered<T>::SinglyLinkedListOrdered() : SinglyLinkedList<T>() {}
 
 template  <typename T>
 SinglyLinkedListOrdered<T>::~SinglyLinkedListOrdered() {}
@@ -13,17 +13,17 @@ void SinglyLinkedListOrdered<T>::insert(T item)
 {
     Node<T>* newNode = new Node<T>(item);
 
-    if (Empty())
+    if (this->Empty())
     {
         newNode->next = nullptr;
-        head = newNode; tail = newNode; 
+        this->head = newNode; this->tail = newNode; 
     }
 
     else
     {
 
         Node<T>* previous = nullptr;
-        Node<T>* current = head;
+        Node<T>* current = this->head;
 
         while (current != nullptr)
         {
@@ -37,26 +37,26 @@ void SinglyLinkedListOrdered<T>::insert(T item)
         newNode->next = current;
 
         if (previous == nullptr)
-            head = newNode;
+            this->head = newNode;
 
         else
             previous->next = newNode;
         
 
         if (current == nullptr)
-            tail = newNode;
+            this->tail = newNode;
     }
 
-    size++;
+    this->size++;
 }
 
 template  <typename T>
 int SinglyLinkedListOrdered<T>::search(T item) const
 {
-    if(Empty())
+    if(this->Empty())
         throw "ERROR: Empty list";
 
-    Node<T>* p = head;
+    Node<T>* p = this->head;
 
     int i = 0;
 
@@ -73,3 +73,8 @@ int SinglyLinkedListOrdered<T>::search(T item) const
     return -1;
 
 }
+
+
+template class SinglyLinkedListOrdered<long long>;
+template class SinglyLinkedListOrdered<int>;
+template class SinglyLinkedListOrdered<double>;

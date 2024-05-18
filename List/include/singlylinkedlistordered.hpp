@@ -11,7 +11,7 @@ class SinglyLinkedListOrdered : public  SinglyLinkedList<T>
         ~SinglyLinkedListOrdered();
 
         void insert(T item);
-        virtual int search(T item) const override;
+        int search(T item) const override;
 
 };
 

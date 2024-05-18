@@ -10,8 +10,8 @@ class List
         int size;
     public:
         List();
-        int getSize() const;
-        bool Empty() const;
+        virtual int getSize() const;
+        virtual bool Empty() const;
 
         virtual T getItem(int index) const = 0;
         virtual T removeBegin() = 0;
@@ -22,21 +22,5 @@ class List
         virtual void clear() = 0;
 
 };
-
-template  <typename T>
-class SinglyLinkedListUnordered : public  SinglyLinkedList<T>
-{   
-    public :
-        SinglyLinkedListUnordered();
-        ~SinglyLinkedListUnordered();
-
-        void setItem(T item, int index);
-        void insertBegin(T item);
-        void insertEnd(T item);
-        virtual void insertIndex(T item, int index);
-        virtual int search(T item) const override;
-
-};
-
 
 #endif

@@ -2,6 +2,15 @@
 #define NODE
 
 template <typename T>
+class SinglyLinkedList;
+
+template <typename T>
+class SinglyLinkedListOrdered;
+
+template <typename T>
+class SinglyLinkedListUnordered;
+
+template <typename T>
 class Node
 {
     private :
@@ -11,8 +20,11 @@ class Node
     public:
         Node(T item);
 
-    friend class SingSinglyLinkedList;
+    template <typename K>
+    friend class SinglyLinkedList;
+    template <typename K>
     friend class SinglyLinkedListOrdered;
+    template <typename K>
     friend class SinglyLinkedListUnordered;
 };
 

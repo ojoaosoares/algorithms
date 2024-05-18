@@ -3,7 +3,7 @@
 // Singly Linked List implemention
 
 template <typename T>
-SinglyLinkedList<T>::SinglyLinkedList() : List() { head = nullptr; tail = nullptr; }
+SinglyLinkedList<T>::SinglyLinkedList() : List<T>() { head = nullptr; tail = nullptr; }
 
 template <typename T>
 SinglyLinkedList<T>::~SinglyLinkedList() { clear(); }
@@ -14,7 +14,7 @@ Node<T>* SinglyLinkedList<T>::getPosition(int index, bool before) const
     // Input : (int) index, the index of the wanted element, (bool) before, if you want the item with the previous index
     // Complexity : Worst case O(n), Best case O(1)
 
-    if (index < 0 || index >= getSize()) 
+    if (index < 0 || index >= this->getSize()) 
         throw "ERROR: Invalid index";
 
     Node<T>* p = head;
@@ -43,7 +43,7 @@ T SinglyLinkedList<T>::removeBegin()
     // Output : T, the item that was removed
     // Complexity : O(1) 
 
-    if(Empty())
+    if(this->Empty())
         throw "ERROR: Empty list";
 
     Node<T>* p = head;
@@ -56,7 +56,7 @@ T SinglyLinkedList<T>::removeBegin()
 
     delete p;
 
-    size--;
+    this->size--;
 
     return aux;
 }
@@ -67,12 +67,12 @@ T SinglyLinkedList<T>::removeEnd()
     // Output : T, the item that was removed
     // Complexity : O(n)
 
-    if(Empty())
+    if(this->Empty())
         throw "ERROR: Empty list";
     
     T aux = tail->item;
 
-    if (getSize() == 1)
+    if (this->getSize() == 1)
     {
         delete tail;
         head = nullptr; tail = nullptr;
@@ -80,7 +80,7 @@ T SinglyLinkedList<T>::removeEnd()
 
     else 
     {
-        Node<T>* p = getPosition(getSize() - 1, true);
+        Node<T>* p = getPosition(this->getSize() - 1, true);
         p->next = nullptr;
 
         delete tail;
@@ -88,7 +88,7 @@ T SinglyLinkedList<T>::removeEnd()
         tail = p;
     }
     
-    size--;
+    this->size--;
 
     return aux;    
 }
@@ -102,22 +102,22 @@ T SinglyLinkedList<T>::removeIndex(int index)
     if (index == 0) 
         return removeBegin();
 
-    if (index == getSize() - 1)
+    if (index == this->getSize() - 1)
         return removeEnd();
 
-    if(List<T>::Empty())
+    if(this->Empty())
         throw "ERROR: Empty list";
     
     Node<T>* p = getPosition(index, true);
     Node<T>* q = p->next;
 
-    p->setNext(q->next);
+    p->next = q->next;
 
     T aux = q->item;
 
     delete q;
 
-    size--;
+    this->size--;
     
     return aux;
 
@@ -126,12 +126,12 @@ T SinglyLinkedList<T>::removeIndex(int index)
 template <typename T>
 void SinglyLinkedList<T>::copyArray(T* array, int size)
 {
-    if (size < getSize())
+    if (this->size < this->getSize())
         throw "ERROR: size insuficient";
 
     Node<T>* p = head;
 
-    for (int i = 0; i < getSize(); i++)
+    for (int i = 0; i < this->getSize(); i++)
     {
         array[i] = p->item;
         p->next = p->next;
@@ -145,7 +145,7 @@ void SinglyLinkedList<T>::printList() const
     // Output : string, the array is printed in form of "a1 a2 a3 ... an";
     // Complexity : O(n)
 
-    if(Empty())
+    if(this->Empty())
         throw "ERROR: Empty list";
 
     Node<T>* p = head;
@@ -176,5 +176,9 @@ void SinglyLinkedList<T>::clear()
 
     tail = nullptr;
 
-    size = 0;
+    this->size = 0;
 }
+
+template class SinglyLinkedList<long long>;
+template class SinglyLinkedList<int>;
+template class SinglyLinkedList<double>;

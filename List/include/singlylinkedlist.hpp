@@ -11,20 +11,20 @@ class SinglyLinkedList : public  List<T>
     protected :
         Node<T>* head;
         Node<T>* tail;
-        Node<T>* getPosition(int index, bool before = false) const;
+        virtual Node<T>* getPosition(int index, bool before = false) const;
     
     public :
         SinglyLinkedList();
         ~SinglyLinkedList();
         
-        T getItem(int index) const override;
-        T removeBegin() override;
-        T removeEnd() override;
-        T removeIndex(int index) override;
+        virtual T getItem(int index) const override;
+        virtual T removeBegin() override;
+        virtual T removeEnd() override;
+        virtual T removeIndex(int index) override;
         virtual int search(T item) const = 0;
-        void copyArray(T* array, int size);
-        void printList() const override;
-        void clear() override;
+        virtual void copyArray(T* array, int size);
+        virtual void printList() const override;
+        virtual void clear() override;
 
 };
 

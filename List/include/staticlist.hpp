@@ -1,3 +1,6 @@
+#ifndef STATIC_LIST
+#define STATIC_LIST
+
 #include "list.hpp"
 
 template  <typename T>
@@ -24,3 +27,6 @@ class StaticList : public List<T>
         void printList() const override;
         void clear() override;
 };
+
+
+#endif
