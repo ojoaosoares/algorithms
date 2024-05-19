@@ -12,9 +12,9 @@ template<typename T> void selection_sort(T *array, long long n)
             if (array[j] < array[min])
                 min = j;
 
-        array[i] = array[i] ^ array[min];
-        array[min] = array[i] ^ array[min];
-        array[i] = array[i] ^ array[min];
+        T aux = array[i];
+        array[i] = array[min];
+        array[min] = aux;
     }
 
     // Análise
@@ -46,9 +46,9 @@ void recursiveSelectionSort(T *arr, long long  l, long long r)
     // swap the minimum element in subarray `arr[i…n-1]` with `arr[i]`
     if (min!=l)
     {
-      array[l] = array[l] ^ array[min];
-      array[min] = array[l] ^ array[min];
-      array[l] = array[l] ^ array[min];
+        T aux = array[l];
+        array[l] = array[min];
+        array[min] = aux;
     }
 
     if (l + 1 < r) {

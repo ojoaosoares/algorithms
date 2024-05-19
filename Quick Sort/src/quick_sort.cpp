@@ -23,9 +23,9 @@ template<typename T> void particao(T *array, long long left, long long right, lo
 
         if (*i <= *j)
         {
-            array[*i] = array[*j] ^ array[*i];
-            array[*j] = array[*j] ^ array[*i];
-            array[*i] = array[*j] ^ array[*i];
+            T aux = array[*i];
+            array[*i] = array[*j];
+            array[*j] = aux;
             
             (*i)++; (*j)--;
         }
