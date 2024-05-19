@@ -44,9 +44,9 @@ void radix_partition(T *array, long long l, long long r, long long w) {
 
             if (i < j)
             {
-                array[i] = array[j] ^arrau[i];
-                array[j] = array[j] ^arrau[i];
-                array[i] = array[j] ^arrau[i];
+                array[i] = array[j] ^array[i];
+                array[j] = array[j] ^array[i];
+                array[i] = array[j] ^array[i];
                 
                 i++; j--;
             }
