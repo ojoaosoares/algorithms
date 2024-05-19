@@ -12,9 +12,10 @@ template<typename T> void bubble_sort(T *array, long long n)
         {
             if (array[j] < array[j-1])
             {
-                array[j] = array[j] ^ array[j-1];
-                array[j - 1] = array[j] ^ array[j-1];
-                array[j] = array[j] ^ array[j-1];
+                T aux = array[j];
+                array[j] = array[j-1];
+                array[j - 1] = aux;
+
                 dont_changed = 0;
             }
         }
