@@ -13,7 +13,7 @@ void bucket_sort(T *array, long long n)
     long long buckets_number = n;
     T buckets_range = (int) std::ceil((max - min + 1) / (float)  buckets_number);
 
-    SinglyLinkedListOrdered<T> buckets[buckets_number + 1];
+    SinglyLinkedListOrdered<T> *buckets = new SinglyLinkedListOrdered<T>[buckets_number + 1];
 
     for (long long i = 0; i < n; i++)
         buckets[(int) std::floor((array[i] - min + 1) / (float) buckets_range)].insert(array[i]);
@@ -26,6 +26,8 @@ void bucket_sort(T *array, long long n)
             buckets[i].copyArray(&array[j], n - j);
             j += buckets[i].getSize();
         }
+
+    delete[] buckets;
 }
 
 template void bucket_sort<long long>(long long *array, long long n);

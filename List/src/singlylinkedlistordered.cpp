@@ -19,9 +19,15 @@ void SinglyLinkedListOrdered<T>::insert(T item)
         this->head = newNode; this->tail = newNode; 
     }
 
+    else if (item >= this->tail->item)
+    {
+        this->tail->next = newNode;
+        newNode->next = nullptr;
+        this->tail = newNode;
+    }
+
     else
     {
-
         Node<T>* previous = nullptr;
         Node<T>* current = this->head;
 
@@ -71,7 +77,6 @@ int SinglyLinkedListOrdered<T>::search(T item) const
     }
 
     return -1;
-
 }
 
 
