@@ -46,9 +46,9 @@ void recursiveSelectionSort(T *arr, long long  l, long long r)
     // swap the minimum element in subarray `arr[i…n-1]` with `arr[i]`
     if (min!=l)
     {
-        T aux = array[l];
-        array[l] = array[min];
-        array[min] = aux;
+        T aux = arr[l];
+        arr[l] = arr[min];
+        arr[min] = aux;
     }
 
     if (l + 1 < r) {
