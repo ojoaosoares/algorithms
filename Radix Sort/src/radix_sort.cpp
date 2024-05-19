@@ -1,7 +1,7 @@
 #include "radix_sort.hpp"
 
 template <typename T>
-void radix_sort(T array[], long long l, long long r, long long w)
+void radix_sort(T *array, long long l, long long r, long long w)
 {
     if (w >= 0)
     {
@@ -31,7 +31,7 @@ void radix_sort(T array[], long long l, long long r, long long w)
 
 
 template <typename T>
-void radix_partition(T array[], long long l, long long r, long long w) {
+void radix_partition(T *array, long long l, long long r, long long w) {
     
     if (w >= 0)
     {
@@ -44,9 +44,9 @@ void radix_partition(T array[], long long l, long long r, long long w) {
 
             if (i < j)
             {
-                T  aux = array[i];
-                array[i] = array[j];
-                array[j] = aux;
+                array[i] = array[j] ^arrau[i];
+                array[j] = array[j] ^arrau[i];
+                array[i] = array[j] ^arrau[i];
                 
                 i++; j--;
             }
@@ -60,7 +60,7 @@ void radix_partition(T array[], long long l, long long r, long long w) {
 }
 
 
-template void radix_sort<long long>(long long array[], long long l, long long r, long long w);
-template void radix_sort<int>(int array[], long long l, long long r, long long w);
-template void radix_partition(long long array[], long long l, long long r, long long w);
-template void radix_partition(int array[], long long l, long long r, long long w);
+template void radix_sort<long long>(long long *array, long long l, long long r, long long w);
+template void radix_sort<int>(int *array, long long l, long long r, long long w);
+template void radix_partition(long long *array, long long l, long long r, long long w);
+template void radix_partition(int *array, long long l, long long r, long long w);

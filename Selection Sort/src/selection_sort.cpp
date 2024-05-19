@@ -1,6 +1,6 @@
 #include "selection_sort.hpp"
 
-template<typename T> void selection_sort(T array[], long long n)
+template<typename T> void selection_sort(T *array, long long n)
 {
     
     long long i, j, min;
@@ -12,7 +12,9 @@ template<typename T> void selection_sort(T array[], long long n)
             if (array[j] < array[min])
                 min = j;
 
-        troca(array[i], array[min]);
+        array[i] = array[i] ^ array[min];
+        array[min] = array[i] ^ array[min];
+        array[i] = array[i] ^ array[min];
     }
 
     // Análise
@@ -28,7 +30,7 @@ template<typename T> void selection_sort(T array[], long long n)
 
 
 template <typename T>
-void recursiveSelectionSort(T arr[], long long  l, long long r)
+void recursiveSelectionSort(T *arr, long long  l, long long r)
 {
     // find the minimum element in the unsorted subarray `[i…n-1]`
     // and swap it with `arr[i]`
@@ -44,9 +46,9 @@ void recursiveSelectionSort(T arr[], long long  l, long long r)
     // swap the minimum element in subarray `arr[i…n-1]` with `arr[i]`
     if (min!=l)
     {
-      T aux = arr[l];
-      arr[l] = arr[min];
-      arr[min] = aux; 
+      array[l] = array[l] ^ array[min];
+      array[min] = array[l] ^ array[min];
+      array[l] = array[l] ^ array[min];
     }
 
     if (l + 1 < r) {
@@ -55,10 +57,10 @@ void recursiveSelectionSort(T arr[], long long  l, long long r)
 }
 
 
-template void selection_sort<int>(int array[], long long n);
-template void selection_sort<long long>(long long array[], long long n);
-template void selection_sort<double>(double array[], long long n);
+template void selection_sort<int>(int *array, long long n);
+template void selection_sort<long long>(long long *array, long long n);
+template void selection_sort<double>(double *array, long long n);
 
-template void recursiveSelectionSort(int arr[], long long  l, long long r);
-template void recursiveSelectionSort(long long arr[], long long  l, long long r);
-template void recursiveSelectionSort(double arr[], long long  l, long long r);
+template void recursiveSelectionSort(int *arr, long long  l, long long r);
+template void recursiveSelectionSort(long long *arr, long long  l, long long r);
+template void recursiveSelectionSort(double *arr, long long  l, long long r);
