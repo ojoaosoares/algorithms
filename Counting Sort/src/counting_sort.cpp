@@ -11,15 +11,19 @@ void counting_sort(long long *array, long long n)
 
     long long i, j = 0;
 
+    for (i = 0; i < max - min + 1; i++)
+        count[i] = 0;
+
     for (i = 0; i < n; i++)
         count[array[i] - min]++;
 
     for (i = 0; i <= max - min; i++)
     {
-        while (count[i])
+        while (count[i] > 0)
         {
-            array[j++] = i + min;
+            array[j] = i + min;
             count[i]--;
+            j++;
         }
     }
 
