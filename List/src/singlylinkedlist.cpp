@@ -129,14 +129,16 @@ void SinglyLinkedList<T>::copyArray(T* array, int size)
     if (this->size < this->getSize())
         throw "ERROR: size insuficient";
 
-    Node<T>* p = head;
-
     for (int i = 0; i < this->getSize(); i++)
     {
+        Node<T>* p = head;
         array[i] = p->item;
-        p->next = p->next;
+        head = head->next;
+        delete p;
     }
 
+    tail = head;
+    this->size = 0;
 }
 
 template <typename T>
@@ -164,19 +166,21 @@ template <typename T>
 void SinglyLinkedList<T>::clear()
 {
     // Complexity : O(n)
-
-    Node<T>* p = head;
-
-    while (p != nullptr)
+    if (!this->Empty())
     {
-        head = head->next;
-        delete p;
-        p = head;
+        Node<T>* p = head;
+
+        while (p != nullptr)
+        {
+            head = head->next;
+            delete p;
+            p = head;
+        }
+
+        tail = nullptr;
+
+        this->size = 0;
     }
-
-    tail = nullptr;
-
-    this->size = 0;
 }
 
 template class SinglyLinkedList<long long>;
