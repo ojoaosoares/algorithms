@@ -3,6 +3,7 @@
 
 #include "list.hpp"
 #include "node.hpp"
+#include "iterator.hpp"
 
 template  <typename T>
 class SinglyLinkedList : public  List<T>
@@ -14,6 +15,10 @@ class SinglyLinkedList : public  List<T>
         virtual Node<T>* getPosition(int index, bool before = false) const;
     
     public :
+
+        Iterator<T> begin();
+        Iterator<T> end();
+
         SinglyLinkedList();
         ~SinglyLinkedList();
         

@@ -9,6 +9,12 @@ template <typename T>
 SinglyLinkedList<T>::~SinglyLinkedList() { clear(); }
 
 template <typename T>
+Iterator<T> SinglyLinkedList<T>::begin() { return Iterator<T>(head); }
+
+template <typename T>
+Iterator<T> SinglyLinkedList<T>::end() { return Iterator<T>(nullptr); }
+
+template <typename T>
 Node<T>* SinglyLinkedList<T>::getPosition(int index, bool before) const
 {
     // Input : (int) index, the index of the wanted element, (bool) before, if you want the item with the previous index
