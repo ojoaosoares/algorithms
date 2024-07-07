@@ -36,6 +36,10 @@ TARGET = a.out
 SRC = $(wildcard $(SRC_FOLDER)*.cpp)
 OBJ = $(patsubst $(SRC_FOLDER)%.cpp, $(OBJ_FOLDER)%.o, $(SRC))
 
+$(shell mkdir -p $(OBJ_FOLDER))
+
+$(shell mkdir -p $(BIN_FOLDER))
+
 $(OBJ_FOLDER)%.o: $(SRC_FOLDER)%.cpp
 	$(CC) $(CXXFLAGS) -c $< -o $@ -I$(INCLUDE_FOLDER)
 
